@@ -27,7 +27,7 @@ public class UserController {
     public String formPost(Model model, ServerWebExchange serverWebExchange) {
         MultiValueMap<String, String> map = serverWebExchange.getFormData().block();
 
-        Integer limit = new Integer(map.get("limit").get(0));
+        Integer limit = Integer.parseInt(map.get("limit").get(0));
 
         log.debug("Received limit value " + limit);
         if (limit == null || limit == 0) {
